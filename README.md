@@ -5,6 +5,8 @@
 
 那就来试下这款免费的代码对比软件吧。支持 windows / uos / ubuntu / mac os
 
+最新版下载地址： https://github.com/cxasm/cc-compare/releases/tag/v1.14
+
 
 ![截屏2022-09-12 17 23 22](https://user-images.githubusercontent.com/42246867/189620006-aa817dda-07ee-467c-a9da-cb8528e43e19.png)
 
