@@ -1,0 +1,590 @@
+package main 这里是二22不同
+22不同的22
+import (
+	"flag"
+	"fmt"
+	"html/template"
+	"io/ioutil"
+	"os"
+	"regexp"
+	"strings"
+
+	"github.com/lxmgo/config"
+)
+
+func readCfg(filePath string) bool {
+	cfg, err := config.NewConfig(filePath)
+	if err != nil {
+		fmt.Println(err.Error())
+		return false
+	}
+11111
+	articleBegin = cfg.String("require::articleBegin")
+	articleEnd = cfg.String("require::articleEnd")
+	titleFlag = cfg.String("require::titleFlag")
+	sectionFlag = cfg.String("require::sectionFlag")
+
+	fmt.Println(articleBegin)
+
+	return true
+}
+
+var articleIndex int
+var sectionIndex int
+var dirText string
+
+//处理一个页面
+func dealOnePage(dirPath string, pagePath string) {
+
+	fileContens, err := ioutil.ReadFile(pagePath)
+
+	if err != nil {
+		fmt.Printf("read %s error \n", pagePath)
+		os.Exit(0)
+	}
+
+	dirText = ""
+
+	lineList := strings.Split(string(fileContens), "\n")
+
+	var articleText string
+	var articleFileName string
+	var aritcleHref string
+
+	var isAritcleBegin bool
+
+	articleIndex = 0
+
+	for _, v := range lineList {
+
+		text := strings.TrimSpace(v)
+		//fmt.Printf("%s\n", text)
+
+		if strings.HasPrefix(text, articleBegin) {
+			articleText = ""
+			articleFileName = fmt.Sprintf("%s\\%d.html", dirPath, articleIndex)
+			aritcleHref = fmt.Sprintf("%d.html", articleIndex)
+			fmt.Printf("find article begin ... %d.html\n", articleIndex)
+			articleIndex++
+			isAritcleBegin = true
+
+		} else if strings.HasPrefix(text, articleEnd) {
+			if articleFileName == "" {
+				fmt.Printf("create file %d.html error\n", articleIndex)
+				os.Exit(0)
+			}
+
+			ioutil.WriteFile(articleFileName, []byte(articleText), 666)
+
+			fmt.Printf("create article ... %s\n", articleFileName)
+
+			isAritcleBegin = false
+
+		} else if strings.HasPrefix(text, titleFlag) {
+			articleText += "<h2>" + text[len(titleFlag):] + "</h2>\n"
+
+			dirText += fmt.Sprintf("<h4><a href=\"%s\">%d %s</a></h4>\n", aritcleHref, articleIndex-1, text[len(titleFlag):])
+
+		} else if strings.HasPrefix(text, sectionFlag) {
+			articleText += "<strong>" + text[len(sectionFlag):] + "</strong>\n"
+		} else if isAritcleBegin {
+			articleText += "<p>" + text + "</p>\n"
+		}
+	}
+
+	dirFileName := fmt.Sprintf("%s\\dir.html", dirPath)
+	ioutil.WriteFile(dirFileName, []byte(dirText), 666)
+
+}
+
+/*检查文件是否存在*/
+func pathExists(path string) bool {
+	_, err := os.Stat(path)
+	if err == nil {
+		return true
+	}
+	if os.IsNotExist(err) {
+		return false
+	}
+
+	fmt.Print(err)
+	return false
+}
+
+var fdirPart1 string = `<html>
+<head>
+<meta charset="utf-8">
+<style>a{text-decoration:none;color:white;font-size:14px;}
+a:active {color:#D200D2;} 
+</style>
+<title>%s</title>
+</head>
+<script>
+var cObj;
+function ht(obj){
+if(cObj!=null){cObj.style.color = "#fff";}
+if(cObj = obj){obj.style.color = "red";}
+}
+</script>
+<body bgcolor="#000000">
+<ul>
+<a href="0.html" target="_top">不显示目录</a><br/>
+`
+
+//将原来的dir.html转换为fdir.html文件
+func tranDirToFrameDir(dirPath string, outDir string, curDirName string) (string, string, []PreNextInfo) {
+
+	if ok := pathExists(dirPath); !ok {
+		fmt.Printf("error, path not exist...%s\n", dirPath)
+		os.Exit(0)
+		return "", "", nil
+	}
+
+	fileContens, err := ioutil.ReadFile(dirPath)
+	if err != nil {
+		fmt.Print(err)
+		return "", "", nil
+	}
+
+	fileContensStr := string(fileContens)
+
+	lineList := strings.Split(fileContensStr, "\n")
+
+	dealBookName := func(value string) string {
+		return value[4 : len(value)-5]
+	}
+
+	dealDirSection := func(value string) (href string, name string) {
+		re, _ := regexp.Compile(`".+">`)
+		href = re.FindString(value)
+
+		re1, _ := regexp.Compile(`">.+?<`)
+		name = re1.FindString(value)
+
+		return href[1 : len(href)-2], name[2 : len(name)-1]
+	}
+
+	dealVaildSectionName := func(src string) string {
+		//re, _ := regexp.Compile(`\d* `)
+		//src = re.ReplaceAllString(src, "")
+		//src = strings.Replace(src, " ", "", -1)
+		src = strings.Replace(src, "、", "", -1)
+		src = strings.Replace(src, ",", "", -1)
+		src = strings.Replace(src, "\\", "", -1)
+		src = strings.Replace(src, "·", "", -1)
+		src = strings.Replace(src, "/", "", -1)
+		src = strings.Replace(src, "?", "", -1)
+		return src
+	}
+
+	var ret string
+
+	var firstPageHref string
+
+	var bookName string
+
+	var sectionIndex int
+
+	var preNextInfoList []PreNextInfo //= make([]PreNextInfo)
+
+	for _, text := range lineList {
+
+		text := strings.TrimLeft(text, " ")
+		if strings.HasPrefix(text, "<h2>") {
+			name := dealBookName(text)
+			ret = fmt.Sprintf(fdirPart1, name)
+
+			//记录书名
+			bookName = name
+
+			fmt.Printf("deal book %s\n", name)
+		} else if strings.HasPrefix(text, "<h4>") {
+			href, name := dealDirSection(text)
+
+			if !strings.Contains(href, "html#s") {
+				name = dealVaildSectionName(name)
+				if name == "" {
+					fmt.Printf("error sectoin name ... href %s\n", href)
+					os.Exit(0)
+				}
+
+				if firstPageHref == "" {
+					firstPageHref = href
+				}
+
+				var info PreNextInfo
+				info.PageHref = href
+				info.PageName = name
+				preNextInfoList = append(preNextInfoList, info)
+			}
+
+			ret += fmt.Sprintf("<li><a onclick=\"ht(this)\" href=\"%s%s/%s\" target=\"main\">%s</a></li>\n", webPreAddr, curDirName, href, name)
+
+			sectionIndex++
+		}
+	}
+
+	ret += `</ul></body>
+</html>`
+	ioutil.WriteFile(outDir+"\\"+"fdir.html", []byte(ret), 666)
+
+	createFrameHtml(bookName, firstPageHref, outDir)
+	return ret, bookName, preNextInfoList
+}
+
+type FrameContents struct {
+	BookName    string
+	DirHref     string
+	SectionHref string
+}
+.body-css {
+    text-align:justify;
+	font-size:24px;
+}
+h2 {
+    color:#FF0000;
+}
+</style>
+</head>
+<body>
+<div class="w3-top w3-green">
+<ul class="w3-navbar" style="margin-left:5%;">
+  <li><a href="{{.BookHref}}" target="_top">{{.BookName}}</a></li>
+  <li><a href="/msg" target="_blank">反馈错误</a></li>
+</ul>
+</div>
+`
+var part1 string = `<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="keywords" content="手边教程网,{{.BookName}},{{.Title}}"/>
+   <meta name="description" content="手边教程网 {{.BookName}} {{.Title}}"/>
+   <title>{{.BookName}} {{.Title}}</title>
+   <link rel="stylesheet" href="/static/css/w3.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?39be18b5d3f8d8d93035136ac66748a7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+   </script>
+<style>
+.body-css {
+    text-align:justify;
+	font-size:24px;
+}
+h2 {
+    color:#FF0000;
+}
+</style>
+</head>
+<body>
+<div class="w3-top w3-green">
+<ul class="w3-navbar" style="margin-left:5%;">
+  <li><a href="{{.BookHref}}" target="_top">{{.BookName}}</a></li>
+  <li><a href="/msg" target="_blank">反馈错误</a></li>
+</ul>
+</div>
+`
+
+var part2 string = `<div class="w3-dark-grey">
+<br><br>
+<div class="w3-row">
+<div class="w3-col w3-container s0 m1 l1"></div>
+<div class="w3-col w3-container s12 m9 l7">
+<div style="border:15px solid #616161"></div>
+`
+
+var part3 = `<footer>`
+
+var part4 = `</footer>
+</div>
+</div>
+</div>
+</body>
+</html> 
+`
+
+func createFrameHtml(bookName string, mainPageHref string, outdir string) {
+	//生成frame网页文件
+	framehtml := &FrameContents{}
+
+	framehtml.BookName = bookName
+	framehtml.SectionHref = mainPageHref
+	framehtml.DirHref = "fdir.html"
+
+	tmp2, _ := template.New("T2").Parse(frameHtmlstr)
+
+	f1, err2 := os.Create(outdir + "\\" + "framemain.html") //创建文件
+	if err2 != nil {
+		fmt.Println(err2)
+	}
+
+	err3 := tmp2.ExecuteTemplate(f1, "T2", framehtml) //可以选取模板
+	if err3 != nil {
+		fmt.Println(err3)
+	}
+
+}
+
+func dealOneBookDir(dirPath string, curDirName string) {
+
+	_, bookName, preNextList := tranDirToFrameDir(dirPath+"\\"+"dir.html", dirPath, curDirName)
+
+	//fmt.Print(preNextList)
+
+	rd, err := ioutil.ReadDir(dirPath)
+
+	if err != nil {
+		fmt.Print(err)
+		return
+	}
+
+	for _, fi := range rd {
+		if fi.IsDir() {
+
+		} else {
+			//找到文件
+
+			if strings.HasSuffix(fi.Name(), "html") && fi.Name() != "dir.html" && fi.Name() != "fdir.html" && fi.Name() != "framemain.html" {
+
+				re, _ := regexp.Compile(`\d+.html`)
+
+				if !re.MatchString(fi.Name()) {
+					continue
+				}
+
+				transPage(dirPath+"\\"+fi.Name(), fi.Name(), dirPath, bookName, preNextList)
+				//os.Remove(dirPath + "\\" + fi.Name())
+			}
+
+			//os.Remove(dirPath + "\\" + fi.Name())
+
+		}
+	}
+
+}
+
+type Inventory struct {
+	BookName string
+	BookHref string
+	Title    string
+}
+
+type PreNextInfo struct {
+	PageHref string
+	PageName string
+}
+
+//转换原来的网页为新网页格式
+func transPage(pagepath string, fileName string, outDir string, bookName string, preNextInfoList []PreNextInfo) string {
+
+	fmt.Printf("deal file %s\n", pagepath)
+
+	if ok := pathExists(pagepath); !ok {
+		fmt.Printf("error, path not exist...\n", pagepath)
+		os.Exit(0)
+	}
+
+	fileContens, err := ioutil.ReadFile(pagepath)
+	if err != nil {
+		fmt.Print(err)
+		os.Exit(0)
+	}
+
+	resultStr := string(fileContens)
+
+	if resultStr == "" {
+		fmt.Printf("deal file %s\n", pagepath)
+		fmt.Printf("not find dir ...\n")
+		os.Exit(0)
+	}
+
+	getSectionName := func(text string) string {
+		reName, _ := regexp.Compile(`<h2>.*?</h2>`)
+		resultStr := reName.FindString(text)
+		return resultStr[4 : len(resultStr)-5]
+	}
+
+	sectionName := getSectionName(resultStr)
+
+	sectionName = strings.TrimSpace(sectionName)
+
+	if strings.HasPrefix(sectionName, "?") {
+		if len(sectionName) == 1 {
+			fmt.Printf("deal file err %s\n", pagepath)
+			os.Exit(0)
+		} else {
+			sectionName = sectionName[1:]
+		}
+	}
+
+	var htmlcontens string
+
+	if localtest {
+		htmlcontens += localpart1
+	} else {
+		htmlcontens += part1
+	}
+
+	htmlcontens += part2
+	htmlcontens += resultStr
+
+	htmlcontens += part3
+
+	findPreNextHref := func(name string) (preHref string, nextHref string, preName string, nextName string) {
+		for i, v := range preNextInfoList {
+			if v.PageHref == name {
+				if i == 0 {
+					preHref = "#"
+					preName = "没有了"
+				} else {
+					preHref = preNextInfoList[i-1].PageHref
+					preName = preNextInfoList[i-1].PageName
+				}
+
+				//fmt.Printf("%s - %s\n", preHref, preName)
+
+				if i == (len(preNextInfoList) - 1) {
+					nextHref = "#"
+					nextName = "没有了"
+				} else {
+					nextHref = preNextInfoList[i+1].PageHref
+					nextName = preNextInfoList[i+1].PageName
+				}
+				return
+			}
+		}
+		fmt.Print("not find pre next page ...")
+		os.Exit(0)
+		return
+	}
+
+	preHref, nextHref, preName, nextName := findPreNextHref(fileName)
+
+	prePageStr := fmt.Sprintf("<p>上一页 <a href=\"%s\">%s</a></p>\n", preHref, preName)
+	nextPageStr := fmt.Sprintf("<p>下一页 <a href=\"%s\">%s</a></p>\n", nextHref, nextName)
+
+	htmlcontens += prePageStr
+	htmlcontens += nextPageStr
+
+	htmlcontens += part4
+
+	sweaters := &Inventory{}
+	sweaters.BookName = bookName
+	sweaters.BookHref = bookHref
+	sweaters.Title = sectionName
+
+	tmpl, _ := template.New("T1").Parse(htmlcontens)
+
+	f, err1 := os.Create(pagepath) //创建文件
+	if err1 != nil {
+		fmt.Println(err1)
+		fmt.Printf("--3 deal file %s \n", pagepath)
+		os.Exit(0)
+	}
+
+	//fmt.Println(ret)
+
+	err2 := tmpl.ExecuteTemplate(f, "T1", sweaters) //可以选取模板
+	if err2 != nil {
+		fmt.Println(err)
+		fmt.Printf("deal file %s\n", pagepath)
+		os.Exit(0)
+	}
+	//ioutil.WriteFile("testpage.html", []byte(htmlcontens), 666)
+
+	return htmlcontens
+}
+这是一个测试不同22222这是一个测试不同
+//遍历目录
+func loopDir(dirPath string) {
+	rd, err := ioutil.ReadDir(dirPath)
+
+	if err != nil {
+		fmt.Print(err)
+		return
+	}
+
+	for _, fi := range rd {
+		if fi.IsDir() {
+			fmt.Printf("[%s]\n", dirPath+"\\"+fi.Name())
+			//找到目录
+
+			if fileFilterPath != "" {
+				if !fileFilterMap[fi.Name()] {
+					fmt.Printf("skip dir %s ...\n", fi.Name())
+					continue
+				}
+			}
+
+			dealOneBookDir(dirPath+"\\"+fi.Name(), fi.Name())
+		} else {
+			//找到文件
+			//fmt.Println(fi.Name())
+		}
+	}
+}
+这是一个测试不同22222这是一个测试不同
+var set_file string
+var articleBegin string
+var articleEnd string
+var titleFlag string
+var sectionFlag string
+var dir_path string
+var fileFilterPath string
+var arg_help bool
+var webPreAddr string
+var localtest bool
+var bookHref string
+
+var fileFilterMap map[string]bool
+
+func main() {
+这是一个测试不同22222这是一个测试不同
+	flag.BoolVar(&arg_help, "h", false, "this help")
+	flag.StringVar(&set_file, "s", "set.ini", "`set_file`参数的配置文件，因为参数比较多，提供配置文件方式")
+	flag.StringVar(&dir_path, "d", "", "`dir_path`处理当前目录下所有书籍目录")
+	flag.StringVar(&fileFilterPath, "f", "", "`fileFilterPath`根据文件处理对应的目录，前面带;不处理")
+	flag.StringVar(&webPreAddr, "w", "", "`webprehref`网站href的路径前缀")
+	flag.StringVar(&bookHref, "r", "/", "`bookHref`返回书籍的href，目前可用一类书籍做代替")
+	flag.BoolVar(&localtest, "l", false, "`localtest`本地测试使用，头部的w3写当前路径")
+	flag.Parse()
+
+	if arg_help {
+		flag.Usage()
+		return
+	}
+
+	//读取参数
+	//readCfg(set_file)
+
+	if dir_path == "" {
+		dir_path, _ = os.Getwd()
+	}
+
+	fileFilterMap = make(map[string]bool)
+	if fileFilterPath != "" {
+		text, _ := ioutil.ReadFile(fileFilterPath)
+
+		fileList := strings.Split(string(text), "\n")
+
+		for _, v := range fileList {
+			v = strings.TrimSpace(v)
+
+			if strings.HasPrefix(v, ";") {
+				fileFilterMap[v[1:]] = false
+			} else {
+				fileFilterMap[v] = true
+			}
+		}
+	}
+这是一个测试不同22222这是一个测试不同
+	loopDir(dir_path)
+
+}
+这是一个测试不同22222这是一个测试不同
