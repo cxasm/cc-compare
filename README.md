@@ -7,6 +7,9 @@
 
 最新版下载地址： https://github.com/cxasm/cc-compare/releases/tag/v1.14
 
+另外您个人或公司需要对比文件，也可以通过动态库进行二次开发。
+
+ccompare 软件是免费的，无广告和许可证限制，您可以免费使用该对比软件。源码对外出售，但不公开开源。
 
 ![截屏2022-09-12 17 23 22](https://user-images.githubusercontent.com/42246867/189620006-aa817dda-07ee-467c-a9da-cb8528e43e19.png)
 
