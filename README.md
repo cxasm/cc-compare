@@ -5,7 +5,7 @@
 
 那就来试下这款免费的代码对比软件吧。支持 windows / uos / ubuntu / mac os
 
-最新版下载地址： https://github.com/cxasm/cc-compare/releases/tag/v1.19
+最新版下载地址： https://github.com/cxasm/cc-compare/releases/tag/v1.21
 
 另外您个人或公司需要对比文件，也可以通过动态库进行二次开发。
 
