@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CompareWin</class>
+ <widget class="QMainWindow" name="CompareWin">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1169</width>
+    <height>651</height>
+   </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>RealCompare File</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="RealCompare.qrc">
+    <normaloff>:/Resources/img/main.png</normaloff>:/Resources/img/main.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>4</number>
+    </property>
+    <property name="topMargin">
+     <number>2</number>
+    </property>
+    <property name="rightMargin">
+     <number>4</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="handleWidth">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="leftWidget" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_left">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="leftChildWidget" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="DragLineEdit" name="leftPath"/>
+             </item>
+             <item>
+              <widget class="QToolButton" name="leftBt">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Open File</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="RealCompare.qrc">
+                 <normaloff>:/Resources/img/open1.png</normaloff>:/Resources/img/open1.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="leftSaveBt">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Save File</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="RealCompare.qrc">
+                 <normaloff>:/Resources/img/save.png</normaloff>:/Resources/img/save.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="NdSplitter" name="splitter_left">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <widget class="QsciDisplayWindow" name="leftSrc">
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <property name="lineWidth">
+               <number>1</number>
+              </property>
+             </widget>
+             <widget class="QsciDisplayWindow" name="leftDiffView">
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QLabel" name="leftLabel">
+               <property name="text">
+                <string>left text code</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="leftCodeBox">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>UTF-8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF-8 BOM</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-LE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-BG</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>GBK</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-JP</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Shift-JIS</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-KR</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>KOI8-R</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TSCII</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TIS_620</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>BIG5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>WINDOWS1250</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UNKNOWN</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Save As text code</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="leftSaveCodeBox">
+               <item>
+                <property name="text">
+                 <string>UTF-8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF-8 BOM</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-LE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-BG</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>GBK</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-JP</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Shift-JIS</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-KR</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>KOI8-R</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TSCII</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TIS_620</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>BIG5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>WINDOWS1250</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UNKNOWN</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="rightWidget" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_right">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="rightChildWidget" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="DragLineEdit" name="rightPath"/>
+             </item>
+             <item>
+              <widget class="QToolButton" name="rightBt">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Open File</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="RealCompare.qrc">
+                 <normaloff>:/Resources/img/open1.png</normaloff>:/Resources/img/open1.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="rightSaveBt">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Save File</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="RealCompare.qrc">
+                 <normaloff>:/Resources/img/save.png</normaloff>:/Resources/img/save.png</iconset>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="NdSplitter" name="splitter_right">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <widget class="QsciDisplayWindow" name="rightSrc">
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+             <widget class="QsciDisplayWindow" name="rightDiffView">
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QLabel" name="rightLabel">
+               <property name="text">
+                <string>right text code</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="rightCodeBox">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <item>
+                <property name="text">
+                 <string>UTF-8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF-8 BOM</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-LE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-BG</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>GBK</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-JP</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Shift-JIS</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-KR</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>KOI8-R</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TSCII</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TIS_620</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>BIG5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>WINDOWS1250</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UNKNOWN</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Save As text code</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="rightSaveCodeBox">
+               <item>
+                <property name="text">
+                 <string>UTF-8</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF-8 BOM</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-LE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UTF16-BG</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>GBK</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-JP</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Shift-JIS</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>EUC-KR</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>KOI8-R</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TSCII</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TIS_620</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>BIG5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>WINDOWS1250</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>UNKNOWN</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1169</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QsciDisplayWindow</class>
+   <extends>QFrame</extends>
+   <header>qscidisplaywindow.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>DragLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>draglineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>NdSplitter</class>
+   <extends>QSplitter</extends>
+   <header location="global">ndsplitter.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="RealCompare.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>leftBt</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareWin</receiver>
+   <slot>slot_openLeftFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>527</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>624</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rightBt</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareWin</receiver>
+   <slot>slot_openRightFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1108</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>930</x>
+     <y>622</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leftSaveBt</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareWin</receiver>
+   <slot>slot_saveLeftFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>573</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rightSaveBt</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareWin</receiver>
+   <slot>slot_saveRightFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1154</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rightCodeBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>CompareWin</receiver>
+   <slot>slot_rightCodeChange(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>772</x>
+     <y>618</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leftCodeBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>CompareWin</receiver>
+   <slot>slot_leftCodeChange(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>184</x>
+     <y>618</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leftSaveCodeBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>CompareWin</receiver>
+   <slot>on_leftSaveCodeChange(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>608</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rightSaveCodeBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>CompareWin</receiver>
+   <slot>on_rightSaveCodeChange(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1021</x>
+     <y>608</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot_openLeftFile()</slot>
+  <slot>slot_openRightFile()</slot>
+  <slot>slot_doCmp()</slot>
+  <slot>slot_saveLeftFile()</slot>
+  <slot>slot_saveRightFile()</slot>
+  <slot>slot_leftCodeChange(int)</slot>
+  <slot>slot_rightCodeChange(int)</slot>
+  <slot>on_leftSaveCodeChange(int)</slot>
+  <slot>on_rightSaveCodeChange(int)</slot>
+ </slots>
+</ui>

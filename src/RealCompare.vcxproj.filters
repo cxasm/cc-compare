@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts;xlf</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts;xlf</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="*.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractCompare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockCompare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CmpareMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompareDirs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Encode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lcs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LcsLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MediatorDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MediatorFileTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QTreeWidgetSortItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RcTreeWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RealCompare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StrategyCompare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="alignwin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="asynccommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="blockuserdata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="closeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cmpsql.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="comparedirmode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="comparedirsdata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="comparehexwin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="comparewin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compareworker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ctipwin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="diffstatuswin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dircmpextwin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dirfindfile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doctypelistview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="donate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="draglineedit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="editcommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="encodeconvert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="filecmprulewin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="findcmpwin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gotolinewin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hexcmprangewin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hexrulewin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ndsplitter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="noequallinemanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="optionsview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="progresswin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qscidisplaywindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rcglobal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="replacecommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statuswidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="textfind.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="userdatacommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="workerthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="workthreadctl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractCompare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockCompare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="CmpareMode.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CompareDirs.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="Encode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="Lcs.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LcsLine.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="LcsTemplate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="MediatorDisplay.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MediatorFileTree.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="QTreeWidgetSortItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RcTreeWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="RealCompare.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="StrategyCompare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="alignwin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="asynccommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="blockuserdata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="closeDlg.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="cmpsql.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="comparedirmode.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="comparedirsdata.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="comparehexwin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="comparewin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="compareworker.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ctipwin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="diff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="diffstatuswin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="dircmpextwin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="dirfindfile.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="doctypelistview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="donate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="draglineedit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="editcommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="encodeconvert.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="filecmprulewin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="findcmpwin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="gotolinewin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="hexcmprangewin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="hexrulewin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ndsplitter.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="noequallinemanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="optionsview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="progresswin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="qscidisplaywindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="rcglobal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="replacecommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="statuswidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="textfind.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="uchardet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="userdatacommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="workerthread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="workthreadctl.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="realcompare_zh.ts">
+      <Filter>Translation Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="CompareDirs.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="RealCompare.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="alignwin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="closeDlg.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="comparehexwin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="comparewin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="compareworker.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ctipwin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="diffstatuswin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="dircmpextwin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="dirfindfile.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="doctypelistview.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="donate.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="encodeconvert.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="filecmprulewin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="findcmpwin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gotolinewin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="hexcmprangewin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="hexrulewin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="optionsview.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="progresswin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="statuswidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="textfind.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img\1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\6.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\6666.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\6688.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="RealCompare.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="Resources\img\aglin.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\all.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\bin.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\break.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\clear.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\closeall.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\closefile.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\crlf.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\diff.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\diff1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\diffall.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\dir.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\expand.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\file.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\find.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\find.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\fold.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\hidechar.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\info.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\left3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\main.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\needsave.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\needsave.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\next.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\next2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\noneedsave.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\onlydiff.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\onlyfile.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\open1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\openfile.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\point.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\pre.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\pre2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\pullopen.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="realcompare_zh.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\redo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\redo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\reload.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\reload2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\replace.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\right3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\rule.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\same1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\save.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\save.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\showall.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\showchar.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\strict.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\swap.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\tolerant.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\tran.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\undo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\undo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\unequaldir.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\unequalfile.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\unique.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\edit\white.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\zoomin.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\img\zoomout.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RealCompare.rc" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RealCompareClass</class>
+ <widget class="QMainWindow" name="RealCompareClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1084</width>
+    <height>726</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CCompare  v1.26</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="RealCompare.qrc">
+    <normaloff>:/Resources/img/main.png</normaloff>:/Resources/img/main.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QTabWidget" name="mainTabPage">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="mainPage">
+       <attribute name="title">
+        <string>MainPage</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QTreeWidget" name="cmpHistoryTreeWidget">
+          <property name="columnCount">
+           <number>1</number>
+          </property>
+          <attribute name="headerVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string notr="true">1</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QToolButton" name="dirCompareBt">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>128</width>
+              <height>128</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>dir compare</string>
+            </property>
+            <property name="icon">
+             <iconset resource="RealCompare.qrc">
+              <normaloff>:/Resources/img/dir.png</normaloff>:/Resources/img/dir.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="fileCompareBt">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>128</width>
+              <height>128</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>file compare</string>
+            </property>
+            <property name="icon">
+             <iconset resource="RealCompare.qrc">
+              <normaloff>:/Resources/img/file.png</normaloff>:/Resources/img/file.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="binCompareBt">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>128</width>
+              <height>128</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>bin compare</string>
+            </property>
+            <property name="icon">
+             <iconset resource="RealCompare.qrc">
+              <normaloff>:/Resources/img/bin.png</normaloff>:/Resources/img/bin.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="codeTranBt">
+            <property name="minimumSize">
+             <size>
+              <width>128</width>
+              <height>128</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>encode convert</string>
+            </property>
+            <property name="icon">
+             <iconset resource="RealCompare.qrc">
+              <normaloff>:/Resources/img/tran.png</normaloff>:/Resources/img/tran.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1084</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionMainWeb"/>
+    <addaction name="actiondonate"/>
+   </widget>
+   <widget class="QMenu" name="menuLanguage">
+    <property name="title">
+     <string>Language</string>
+    </property>
+    <addaction name="actionEnglish"/>
+    <addaction name="actionChinese"/>
+   </widget>
+   <addaction name="menuAbout"/>
+   <addaction name="menuLanguage"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionfile">
+   <property name="text">
+    <string>dir</string>
+   </property>
+  </action>
+  <action name="actionfile_2">
+   <property name="text">
+    <string>file</string>
+   </property>
+  </action>
+  <action name="actionrule">
+   <property name="text">
+    <string>rule</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionChinese">
+   <property name="text">
+    <string>Chinese</string>
+   </property>
+  </action>
+  <action name="actiondonate">
+   <property name="text">
+    <string>donate</string>
+   </property>
+  </action>
+  <action name="actiontest">
+   <property name="text">
+    <string>test</string>
+   </property>
+  </action>
+  <action name="actiontest_2">
+   <property name="text">
+    <string>test</string>
+   </property>
+  </action>
+  <action name="actionMainWeb">
+   <property name="text">
+    <string>main</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="RealCompare.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>fileCompareBt</sender>
+   <signal>clicked()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot_cmpareFileBt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>398</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>415</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dirCompareBt</sender>
+   <signal>clicked()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot_cmpareDirBt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>216</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>415</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>codeTranBt</sender>
+   <signal>clicked()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot_codeConvert()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>780</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1102</x>
+     <y>388</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEnglish</sender>
+   <signal>triggered()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot_changeEnglish()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>415</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionChinese</sender>
+   <signal>triggered()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot_changeChinese()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>415</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actiondonate</sender>
+   <signal>triggered()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot_donate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>523</x>
+     <y>315</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionMainWeb</sender>
+   <signal>triggered()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot1_mainweb()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>461</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>binCompareBt</sender>
+   <signal>clicked()</signal>
+   <receiver>RealCompareClass</receiver>
+   <slot>slot_cmpareBinBt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>535</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>629</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot_cmpareFileBt()</slot>
+  <slot>slot_cmpareDirBt()</slot>
+  <slot>slot_codeConvert()</slot>
+  <slot>slot_changeEnglish()</slot>
+  <slot>slot_changeChinese()</slot>
+  <slot>slot_donate()</slot>
+  <slot>slot_recentFile(QAction*)</slot>
+  <slot>slot_recentDir(QAction*)</slot>
+  <slot>slot1_mainweb()</slot>
+  <slot>slot_cmpareBinBt()</slot>
+ </slots>
+</ui>

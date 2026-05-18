@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3E6BDF09-A07C-3B58-9769-14FE473C08C5}</ProjectGuid>
+    <RootNamespace>CCompare</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.22621.0</WindowsTargetPlatformMinVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>x64\Release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>CCompare</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>x64\Debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>CCompare</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtModules>core;sql;network;gui;widgets;concurrent</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtModules>core;sql;network;gui;widgets;concurrent</QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">x64\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CCompare</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CCompare</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Label="QtMocPreprocessDefines" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtMocPreprocessDefinesCommand>cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /openmp -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;$(IntDir)\moc_predefs.h</QtMocPreprocessDefinesCommand>
+    <QtMocPreprocessDefinesInputs>$(QTDIR)\mkspecs\features\data\dummy.cpp</QtMocPreprocessDefinesInputs>
+    <QtMocPreprocessDefinesOutputs>$(IntDir)\moc_predefs.h</QtMocPreprocessDefinesOutputs>
+    <QtMocPreprocessDefinesMessage>Generate moc_predefs.h</QtMocPreprocessDefinesMessage>
+  </PropertyGroup>
+  <PropertyGroup Label="QtMocPreprocessDefines" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtMocPreprocessDefinesCommand>cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /openmp -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;$(IntDir)\moc_predefs.h</QtMocPreprocessDefinesCommand>
+    <QtMocPreprocessDefinesInputs>$(QTDIR)\mkspecs\features\data\dummy.cpp</QtMocPreprocessDefinesInputs>
+    <QtMocPreprocessDefinesOutputs>$(IntDir)\moc_predefs.h</QtMocPreprocessDefinesOutputs>
+    <QtMocPreprocessDefinesMessage>Generate moc_predefs.h</QtMocPreprocessDefinesMessage>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;qscint\src;qscint\src\Qsci;qscint\scintilla\include;release;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QSCINTILLA_DLL;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>x64\Release\qmyedit_qt5.lib;lib64\Release\uchardet.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>x64\Release;lib64\Release;C:\openssl\lib;C:\Utils\my_sql\mysql-5.7.25-winx64\lib;C:\Utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\CCompare.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QSCINTILLA_DLL;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <InitFuncName>RealCompare</InitFuncName>
+      <Compression>default</Compression>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>$(Configuration)</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;qscint\src;qscint\src\Qsci;qscint\scintilla\include;debug;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QSCINTILLA_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>x64\Debug\qmyedit_qt5d.lib;lib64\Debug\uchardet.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>x64\Debug;lib64\Debug;C:\openssl\lib;C:\Utils\my_sql\mysql-5.7.25-winx64\lib;C:\Utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\CCompare.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QSCINTILLA_DLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(Configuration)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <InitFuncName>RealCompare</InitFuncName>
+      <Compression>default</Compression>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>$(Configuration)</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="*.cc" />
+    <ClCompile Include="AbstractCompare.cpp" />
+    <ClCompile Include="BlockCompare.cpp" />
+    <ClCompile Include="CmpareMode.cpp" />
+    <ClCompile Include="CompareDirs.cpp" />
+    <ClCompile Include="Encode.cpp" />
+    <ClCompile Include="Lcs.cpp" />
+    <ClCompile Include="LcsLine.cpp" />
+    <ClCompile Include="MediatorDisplay.cpp" />
+    <ClCompile Include="MediatorFileTree.cpp" />
+    <ClCompile Include="QTreeWidgetSortItem.cpp" />
+    <ClCompile Include="RcTreeWidget.cpp" />
+    <ClCompile Include="RealCompare.cpp" />
+    <ClCompile Include="StrategyCompare.cpp" />
+    <ClCompile Include="alignwin.cpp" />
+    <ClCompile Include="asynccommand.cpp" />
+    <ClCompile Include="blockuserdata.cpp" />
+    <ClCompile Include="closeDlg.cpp" />
+    <ClCompile Include="cmpsql.cpp" />
+    <ClCompile Include="command.cpp" />
+    <ClCompile Include="common.cpp" />
+    <ClCompile Include="comparedirmode.cpp" />
+    <ClCompile Include="comparedirsdata.cpp" />
+    <ClCompile Include="comparehexwin.cpp" />
+    <ClCompile Include="comparewin.cpp" />
+    <ClCompile Include="compareworker.cpp" />
+    <ClCompile Include="ctipwin.cpp" />
+    <ClCompile Include="diffstatuswin.cpp" />
+    <ClCompile Include="dircmpextwin.cpp" />
+    <ClCompile Include="dirfindfile.cpp" />
+    <ClCompile Include="doctypelistview.cpp" />
+    <ClCompile Include="donate.cpp" />
+    <ClCompile Include="draglineedit.cpp" />
+    <ClCompile Include="editcommand.cpp" />
+    <ClCompile Include="encodeconvert.cpp" />
+    <ClCompile Include="filecmprulewin.cpp" />
+    <ClCompile Include="findcmpwin.cpp" />
+    <ClCompile Include="gotolinewin.cpp" />
+    <ClCompile Include="hexcmprangewin.cpp" />
+    <ClCompile Include="hexrulewin.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ndsplitter.cpp" />
+    <ClCompile Include="noequallinemanager.cpp" />
+    <ClCompile Include="optionsview.cpp" />
+    <ClCompile Include="progresswin.cpp" />
+    <ClCompile Include="qscidisplaywindow.cpp" />
+    <ClCompile Include="rcglobal.cpp" />
+    <ClCompile Include="replacecommand.cpp" />
+    <ClCompile Include="statuswidget.cpp" />
+    <ClCompile Include="textfind.cpp" />
+    <ClCompile Include="userdatacommand.cpp" />
+    <ClCompile Include="workerthread.cpp" />
+    <ClCompile Include="workthreadctl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractCompare.h" />
+    <ClInclude Include="BlockCompare.h" />
+    <QtMoc Include="CmpareMode.h" />
+    <QtMoc Include="CompareDirs.h" />
+    <ClInclude Include="Encode.h" />
+    <QtMoc Include="Lcs.h" />
+    <QtMoc Include="LcsLine.h" />
+    <ClInclude Include="LcsTemplate.h" />
+    <QtMoc Include="MediatorDisplay.h" />
+    <QtMoc Include="MediatorFileTree.h" />
+    <ClInclude Include="QTreeWidgetSortItem.h" />
+    <ClInclude Include="RcTreeWidget.h" />
+    <QtMoc Include="RealCompare.h" />
+    <ClInclude Include="StrategyCompare.h" />
+    <QtMoc Include="alignwin.h" />
+    <ClInclude Include="asynccommand.h" />
+    <ClInclude Include="blockuserdata.h" />
+    <QtMoc Include="closeDlg.h" />
+    <ClInclude Include="cmpsql.h" />
+    <ClInclude Include="command.h" />
+    <ClInclude Include="common.h" />
+    <QtMoc Include="comparedirmode.h" />
+    <QtMoc Include="comparedirsdata.h" />
+    <QtMoc Include="comparehexwin.h" />
+    <QtMoc Include="comparewin.h" />
+    <QtMoc Include="compareworker.h" />
+    <QtMoc Include="ctipwin.h" />
+    <ClInclude Include="diff.h" />
+    <QtMoc Include="diffstatuswin.h" />
+    <QtMoc Include="dircmpextwin.h" />
+    <QtMoc Include="dirfindfile.h" />
+    <QtMoc Include="doctypelistview.h" />
+    <QtMoc Include="donate.h" />
+    <QtMoc Include="draglineedit.h" />
+    <ClInclude Include="editcommand.h" />
+    <QtMoc Include="encodeconvert.h" />
+    <QtMoc Include="filecmprulewin.h" />
+    <QtMoc Include="findcmpwin.h" />
+    <QtMoc Include="gotolinewin.h" />
+    <QtMoc Include="hexcmprangewin.h" />
+    <QtMoc Include="hexrulewin.h" />
+    <QtMoc Include="ndsplitter.h" />
+    <ClInclude Include="noequallinemanager.h" />
+    <QtMoc Include="optionsview.h" />
+    <QtMoc Include="progresswin.h" />
+    <QtMoc Include="qscidisplaywindow.h" />
+    <ClInclude Include="rcglobal.h" />
+    <ClInclude Include="replacecommand.h" />
+    <ClInclude Include="resource.h" />
+    <QtMoc Include="statuswidget.h" />
+    <QtMoc Include="textfind.h" />
+    <ClInclude Include="uchardet.h" />
+    <ClInclude Include="userdatacommand.h" />
+    <QtMoc Include="workerthread.h" />
+    <QtMoc Include="workthreadctl.h" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="realcompare_zh.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="CompareDirs.ui" />
+    <QtUic Include="RealCompare.ui" />
+    <QtUic Include="alignwin.ui" />
+    <QtUic Include="closeDlg.ui" />
+    <QtUic Include="comparehexwin.ui" />
+    <QtUic Include="comparewin.ui" />
+    <QtUic Include="compareworker.ui" />
+    <QtUic Include="ctipwin.ui" />
+    <QtUic Include="diffstatuswin.ui" />
+    <QtUic Include="dircmpextwin.ui" />
+    <QtUic Include="dirfindfile.ui" />
+    <QtUic Include="doctypelistview.ui" />
+    <QtUic Include="donate.ui" />
+    <QtUic Include="encodeconvert.ui" />
+    <QtUic Include="filecmprulewin.ui" />
+    <QtUic Include="findcmpwin.ui" />
+    <QtUic Include="gotolinewin.ui" />
+    <QtUic Include="hexcmprangewin.ui" />
+    <QtUic Include="hexrulewin.ui" />
+    <QtUic Include="optionsview.ui" />
+    <QtUic Include="progresswin.ui" />
+    <QtUic Include="statuswidget.ui" />
+    <QtUic Include="textfind.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img\1.png" />
+    <None Include="Resources\img\2.png" />
+    <None Include="Resources\img\3.png" />
+    <None Include="Resources\img\4.png" />
+    <None Include="Resources\img\5.png" />
+    <None Include="Resources\img\6.png" />
+    <None Include="Resources\img\6666.jpg" />
+    <None Include="Resources\img\6688.png" />
+    <QtRcc Include="RealCompare.qrc" />
+    <None Include="Resources\img\aglin.png" />
+    <None Include="Resources\img\all.png" />
+    <None Include="Resources\img\bin.png" />
+    <None Include="Resources\img\break.png" />
+    <None Include="Resources\img\clear.png" />
+    <None Include="Resources\edit\closeall.png" />
+    <None Include="Resources\edit\closefile.png" />
+    <None Include="Resources\edit\crlf.png" />
+    <None Include="Resources\img\diff.png" />
+    <None Include="Resources\img\diff1.png" />
+    <None Include="Resources\img\diffall.png" />
+    <None Include="Resources\img\dir.png" />
+    <None Include="Resources\img\expand.png" />
+    <None Include="Resources\img\file.png" />
+    <None Include="Resources\edit\find.png" />
+    <None Include="Resources\img\find.png" />
+    <None Include="Resources\img\fold.png" />
+    <None Include="Resources\img\hidechar.png" />
+    <None Include="Resources\img\info.png" />
+    <None Include="Resources\img\left3.png" />
+    <None Include="Resources\img\main.png" />
+    <None Include="Resources\edit\needsave.png" />
+    <None Include="Resources\img\needsave.png" />
+    <None Include="Resources\img\next.png" />
+    <None Include="Resources\img\next2.png" />
+    <None Include="Resources\edit\noneedsave.png" />
+    <None Include="Resources\img\onlydiff.png" />
+    <None Include="Resources\img\onlyfile.png" />
+    <None Include="Resources\img\open.png" />
+    <None Include="Resources\img\open1.png" />
+    <None Include="Resources\edit\openfile.png" />
+    <None Include="Resources\img\point.png" />
+    <None Include="Resources\img\pre.png" />
+    <None Include="Resources\img\pre2.png" />
+    <None Include="Resources\img\pullopen.png" />
+    <None Include="realcompare_zh.qm" />
+    <None Include="Resources\edit\redo.png" />
+    <None Include="Resources\img\redo.png" />
+    <None Include="Resources\img\reload.png" />
+    <None Include="Resources\img\reload2.png" />
+    <None Include="Resources\edit\replace.png" />
+    <None Include="Resources\img\right3.png" />
+    <None Include="Resources\img\rule.png" />
+    <None Include="Resources\img\same1.png" />
+    <None Include="Resources\edit\save.png" />
+    <None Include="Resources\img\save.png" />
+    <None Include="Resources\img\showall.png" />
+    <None Include="Resources\img\showchar.png" />
+    <None Include="Resources\img\strict.png" />
+    <None Include="Resources\img\swap.png" />
+    <None Include="Resources\img\tolerant.png" />
+    <None Include="Resources\img\tran.png" />
+    <None Include="Resources\edit\undo.png" />
+    <None Include="Resources\img\undo.png" />
+    <None Include="Resources\img\unequaldir.png" />
+    <None Include="Resources\img\unequalfile.png" />
+    <None Include="Resources\img\unique.png" />
+    <None Include="Resources\edit\white.png" />
+    <None Include="Resources\img\zoomin.png" />
+    <None Include="Resources\img\zoomout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RealCompare.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

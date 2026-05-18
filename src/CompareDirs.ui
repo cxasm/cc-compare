@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CompareDirs</class>
+ <widget class="QMainWindow" name="CompareDirs">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1174</width>
+    <height>651</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>RealCompare Dirs</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="RealCompare.qrc">
+    <normaloff>:/Resources/img/main.png</normaloff>:/Resources/img/main.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>1</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>1</number>
+    </property>
+    <property name="bottomMargin">
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="leftWidget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_left">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="leftChildWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>4</number>
+            </property>
+            <item>
+             <widget class="DragLineEdit" name="leftPath"/>
+            </item>
+            <item>
+             <widget class="QToolButton" name="leftBt">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Open Dir</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="RealCompare.qrc">
+                <normaloff>:/Resources/img/open1.png</normaloff>:/Resources/img/open1.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="leftReload">
+              <property name="toolTip">
+               <string>Reload Dir</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="RealCompare.qrc">
+                <normaloff>:/Resources/img/reload2.png</normaloff>:/Resources/img/reload2.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="RcTreeWidget" name="leftTreeDir">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Sunken</enum>
+            </property>
+            <property name="lineWidth">
+             <number>1</number>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="rootIsDecorated">
+             <bool>true</bool>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <attribute name="headerShowSortIndicator" stdset="0">
+             <bool>true</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>FileSize</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Modify Time</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="rightWidget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_right">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="rightChildWidget" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="spacing">
+             <number>4</number>
+            </property>
+            <item>
+             <widget class="DragLineEdit" name="rightPath"/>
+            </item>
+            <item>
+             <widget class="QToolButton" name="rightBt">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Open Dir</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="RealCompare.qrc">
+                <normaloff>:/Resources/img/open1.png</normaloff>:/Resources/img/open1.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="rightReload">
+              <property name="toolTip">
+               <string>Reload Dir</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="RealCompare.qrc">
+                <normaloff>:/Resources/img/reload2.png</normaloff>:/Resources/img/reload2.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="RcTreeWidget" name="rightTreeDir">
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="lineWidth">
+             <number>1</number>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="rootIsDecorated">
+             <bool>true</bool>
+            </property>
+            <property name="sortingEnabled">
+             <bool>true</bool>
+            </property>
+            <attribute name="headerShowSortIndicator" stdset="0">
+             <bool>true</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>FileSize</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Modify Time</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1174</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>DragLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>draglineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>RcTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>RcTreeWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="RealCompare.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>leftBt</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareDirs</receiver>
+   <slot>slot_openLeftDir()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>549</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>594</x>
+     <y>626</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rightBt</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareDirs</receiver>
+   <slot>slot_openRightDir()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1130</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>586</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leftReload</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareDirs</receiver>
+   <slot>slot_reloadLeftDir()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>566</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>493</x>
+     <y>623</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rightReload</sender>
+   <signal>clicked()</signal>
+   <receiver>CompareDirs</receiver>
+   <slot>slot_reloadRightDir()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1148</x>
+     <y>56</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1069</x>
+     <y>627</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slot_openLeftDir()</slot>
+  <slot>slot_openRightDir()</slot>
+  <slot>slot_reloadLeftDir()</slot>
+  <slot>slot_reloadRightDir()</slot>
+ </slots>
+</ui>

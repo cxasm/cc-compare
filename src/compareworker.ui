@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CompareWorker</class>
+ <widget class="QObject" name="CompareWorker">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CompareWorker</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="RealCompare.qrc">
+    <normaloff>:/Resources/img/main.png</normaloff>:/Resources/img/main.png</iconset>
+  </property>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QObject</class>
+   <extends>QWidget</extends>
+   <header>qobject.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="RealCompare.qrc"/>
+ </resources>
+ <connections/>
+</ui>
